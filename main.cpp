@@ -4,6 +4,8 @@
 #include <map>
 #include <fstream>
 #include <sstream>
+#include <iterator>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,13 +40,9 @@ public:
 
 template <typename InputIterator>
 auto standardDeviation(InputIterator first, InputIterator last) {
-    int sum = 0;
-    int count = 0;
-    for(auto i = first; i != last; i++) {
-        sum += i;
-        count++;
-    }
-    double avg = sum / count;
+    auto iter  = distance(first, last);
+    //double average = accumulate(begin, end, 0) / iter;
+    //auto term = [average]
 
 }
 
@@ -55,12 +53,11 @@ int main() {
     string read_person, person, val;
     myMap<string, int> map;
 
-
-    //Read file into STL map
     while(getline(read_file, read_person)) {
         istringstream person_val(read_person);
         person_val >> person >> val;
-        map.add(person, val);
+        int
+        map.add(person, Integer.valueOf(val));
     }
 
     return 0;
